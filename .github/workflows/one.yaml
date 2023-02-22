@@ -1,0 +1,14 @@
+name: one workflow
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  one_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bakuppus/gh-reuse-central/.github/workflows/inputs.yaml
+        with:
+          username: ${{ inputs.username }}
+          token: inherit
