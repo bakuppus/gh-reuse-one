@@ -1,14 +1,21 @@
 name: one workflow
 
 on:
-  push:
-    branches: ['main']
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
 
 jobs:
   one_workflow:
     runs-on: ubuntu-latest
     steps:
-      - uses: bakuppus/gh-reuse-central/.github/workflows/inputs.yaml@main
-        with:
-          username: ${{ inputs.username }}
-          token: inherit
+      - uses: actions/checkout@v3
+
+      - name: Hello User
+        run: echo Hello ${{ inputs.username }}
