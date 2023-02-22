@@ -8,7 +8,7 @@ jobs:
   one_workflow:
     runs-on: ubuntu-latest
     steps:
-      - uses: bakuppus/gh-reuse-central/.github/workflows/inputs.yaml
+      - uses: bakuppus/gh-reuse-central/.github/workflows/inputs.yaml@main
         with:
           username: ${{ inputs.username }}
           token: inherit
